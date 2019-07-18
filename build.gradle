@@ -1,0 +1,30 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'scala'
+
+group = 'com.sirfin'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+ext{
+	scala_base = 2.11
+	scala_version = "${scala_base}.8"
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation "org.scala-lang:scala-library:${scala_version}"
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation "org.clapper:classutil_${scala_base}:1.5.0"
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "org.scalactic:scalactic_${scala_base}:3.0.8"
+	testImplementation "org.scalatest:scalatest_${scala_base}:3.0.8"
+}
